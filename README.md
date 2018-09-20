@@ -9,8 +9,14 @@ You can find crawler here : https://github.com/wayne391/Symbolic-Musical-Dataset
 
 requirement.py :toolkits used in the whole work
 get_data.py                     |  get melody and chord matrix from xml
+
+
 get_train_and_test_data.py      |  seperate the data into training set and testing set
+
+
 ops.py                          |  some functions used in model
+
+
 model.py                        |  Generator and Discriminator.   (Based on model 3 in the MidiNet paper)
 main.py                         |  training setting, drawing setting, generation setting.
 demo.py                         |  transform matrix into midi. (input : melody and chord matrix, output : midi)
