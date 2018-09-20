@@ -1,9 +1,12 @@
 
 This is an Implementation of MidiNet by pytorch.
+
 MidiNet paper : https://arxiv.org/abs/1703.10847 
+
 MidiNet code  : https://github.com/RichardYang40148/MidiNet 
 
 dataset is from theorytab : https://www.hooktheory.com/theorytab 
+
 You can find crawler here : https://github.com/wayne391/Symbolic-Musical-Datasets 
 
 
