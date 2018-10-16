@@ -58,6 +58,10 @@ def main():
     epochs = 20
     lr = 0.0002
 
+    check_range_st = 0
+    check_range_ed = 129
+    pitch_range = check_range_ed - check_range_st-1
+    
     device = torch.device('cuda')
     train_loader = load_data()
 
@@ -182,7 +186,7 @@ def main():
                 if epoch % 5 == 0:
                     print('[%d/%d][%d/%d] Loss_D: %.4f Loss_G: %.4f D(x): %.4f D(G(z)): %.4f / %.4f'
                           % (epoch, epochs, i, len(train_loader),
-                             errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
+                             errD, errG, D_x, D_G_z1, D_G_z2))
 
                 if i % 100 == 0:
                     vutils.save_image(real_cpu,
