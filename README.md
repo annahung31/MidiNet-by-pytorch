@@ -16,7 +16,7 @@ requirement.py                  |  toolkits used in the whole work
 get_data.py                     |  get melody and chord matrix from xml
 
 
-get_train_and_test_data.py      |  seperate the data into training set and testing set
+get_train_and_test_data.py      |  seperate the melody data into training set and testing set
 
 
 ops.py                          |  some functions used in model
