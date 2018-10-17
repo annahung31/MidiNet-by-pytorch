@@ -32,9 +32,9 @@ def load_data():
     pitch_range = check_range_ed - check_range_st-1
     # print('pitch range: {}'.format(pitch_range))
 
-    X_tr = np.load('../data/octave2_X_tr.npy')
-    prev_X_tr = np.load('../data/octave2_prev_X_tr.npy')
-    y_tr    = np.load('../data/y_tr.npy')
+    X_tr = np.load('your training x')
+    prev_X_tr = np.load('your training prev x')
+    y_tr    = np.load('your training chord')
     X_tr = X_tr[:,:,:,check_range_st:check_range_ed]
     prev_X_tr = prev_X_tr[:,:,:,check_range_st:check_range_ed]
 
@@ -245,23 +245,23 @@ def main():
         # new_ticks = np.linspace(0, length, int(length/1000+1))
         # plt.xticks(new_ticks)
         plt.title('my result',fontsize='large',fontweight='bold',horizontalalignment='center') 
-        plt.savefig('/home/annahung/project/theorylab/gan/figures/lr='+ str(lr) +'_epoch='+str(epochs)+'.png')
+        plt.savefig('where you want to save/lr='+ str(lr) +'_epoch='+str(epochs)+'.png')
 
     if is_sample == 1:
         batch_size = 8
         nz = 100
         n_bars = 7
-        X_te = np.load('../data/octave2_X_te.npy')
-        prev_X_te = np.load('../data/octave2_prev_X_te.npy')
+        X_te = np.load('your testing x')
+        prev_X_te = np.load('your testing prev x')
         prev_X_te = prev_X_te[:,:,check_range_st:check_range_ed,:]
-        y_te    = np.load('../data/y_te.npy')
+        y_te    = np.load('yourd chord')
        
         test_iter = get_dataloader(X_te,prev_X_te,y_te)
         kwargs = {'num_workers': 4, 'pin_memory': True}# if args.cuda else {}
         test_loader = DataLoader(test_iter, batch_size=batch_size, shuffle=False, **kwargs)
 
         netG = sample_generator()
-        netG.load_state_dict(torch.load('/home/annahung/project/theorylab/gan/models/netG_epoch_19.pth'))
+        netG.load_state_dict(torch.load('your model'))
 
         output_songs = []
         output_chords = []
