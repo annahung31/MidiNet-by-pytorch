@@ -250,7 +250,7 @@ def main():
         kwargs = {'num_workers': 4, 'pin_memory': True}# if args.cuda else {}
         test_loader = DataLoader(test_iter, batch_size=batch_size, shuffle=False, **kwargs)
 
-        netG = sample_generator()
+        netG = sample_generator(pitch_range)
         netG.load_state_dict(torch.load('your model'))
 
         output_songs = []
