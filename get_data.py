@@ -536,7 +536,7 @@ def main():
     is_get_data = 1
     is_get_matrix = 1
     if is_get_data == 1:
-        a = '/home/annahung/project/theorylab/archive/'
+        a = 'data file'
         list_file = get_listfile(a)
         list_ = check_chord_type(list_file)
         list_of_four_beat = beats_(list_)
