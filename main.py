@@ -190,12 +190,11 @@ def main():
 
                 if i % 100 == 0:
                     vutils.save_image(real_cpu,
-                            '%s/real_samples.png' % '/home/annahung/project/theorylab/gan/figures/',
+                            '%s/real_samples.png' % 'file',
                             normalize=True)
-
                     fake = netG(fixed_noise,prev_data_cpu,chord_cpu,batch_size,pitch_range)
                     vutils.save_image(fake.detach(),
-                            '%s/fake_samples_epoch_%03d.png' % ('/home/annahung/project/theorylab/gan/figures/', epoch),
+                            '%s/fake_samples_epoch_%03d.png' % ('file', epoch),
                             normalize=True)
 
             average_lossD = (sum_lossD / len(train_loader.dataset))
@@ -223,28 +222,19 @@ def main():
         torch.save(netD.state_dict(), '%s/netD_epoch_%d.pth' % ('../models', epoch))
 
     if is_draw == 1:
-        # lossD_print = np.load('lossD_list.npy')
-        # lossG_print = np.load('lossG_list.npy')
-        # D_x_print   = np.load('D_x_list.npy')
-        # D_G_z_print = np.load('D_G_z_list.npy')
-
-        lossD_all_print = np.load('lossD_list_all.npy')
-        lossG_all_print = np.load('lossG_list_all.npy')
-        length = lossG_all_print.shape[0]
+        lossD_print = np.load('lossD_list.npy')
+        lossG_print = np.load('lossG_list.npy')
+        length = lossG_print.shape[0]
 
         x = np.linspace(0, length-1, length)
         x = np.asarray(x)
         plt.figure()
-        plt.plot(x, lossD_all_print,label=' lossD',linewidth=1.5)
-        plt.plot(x, lossG_all_print,label=' lossG',linewidth=1.5)
+        plt.plot(x, lossD_print,label=' lossD',linewidth=1.5)
+        plt.plot(x, lossG_print,label=' lossG',linewidth=1.5)
 
         plt.legend(loc='upper right')
         plt.xlabel('data')
         plt.ylabel('loss')
-
-        # new_ticks = np.linspace(0, length, int(length/1000+1))
-        # plt.xticks(new_ticks)
-        plt.title('my result',fontsize='large',fontweight='bold',horizontalalignment='center') 
         plt.savefig('where you want to save/lr='+ str(lr) +'_epoch='+str(epochs)+'.png')
 
     if is_sample == 1:
@@ -285,8 +275,6 @@ def main():
                 sample = netG(z, prev, y, 1,pitch_range)
                 list_song.append(sample)
                 list_chord.append(y.numpy())
-                # print('num of output_songs: {},num of bars: {},num of chords: {}'.format(
-                                   # len(output_songs), len(list_song),len(list_chord) ))
 
             print('num of output_songs: {}'.format(len(output_songs)))
             output_songs.append(list_song)
