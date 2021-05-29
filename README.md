@@ -20,7 +20,9 @@ get_data.py                     |  get melody and chord matrix from xml
 
 get_train_and_test_data.py      |  seperate the melody data into training set and testing set (chord preparation not included)
 
-Or get the processed data from [the author](https://drive.google.com/drive/folders/1kQ9nXolLTOw1MNC8nPNguIXsvAFcwYCw)
+Or get the processed data from [the author](https://drive.google.com/drive/folders/1kQ9nXolLTOw1MNC8nPNguIXsvAFcwYCw).
+
+
 --------------------------------------------------------------------------------------------------
 After you have the data, 
 1. Make sure you have toolkits in the requirement.py
